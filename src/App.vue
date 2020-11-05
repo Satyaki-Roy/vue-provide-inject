@@ -32,11 +32,28 @@ export default {
       activeTopic: null,
     };
   },
+  provide() {
+    return {
+      topics: this.topics,
+    }
+  },
   methods: {
     activateTopic(topicId) {
       this.activeTopic = this.topics.find((topic) => topic.id === topicId);
     },
   },
+  mounted() {
+    setTimeout(() => {
+      this.topics.push({
+        id: 'myself',
+        title: 'Satyaki Roy',
+        description:
+          'About Satyaki Roy',
+        fullText:
+          'Satyaki is a great person with vue power',
+      })
+    }, 3000)
+  }
 };
 </script>
 
